@@ -1,6 +1,7 @@
 const express = require('express');
 const axios =  require('axios');
 const app = express();
+const PORT = process.env.PORT || 3030;
 
 app.get('/', async(req,res) => {
     const result = await axios.get('https://superheroapi.com/api/accesscode/1')
@@ -8,6 +9,6 @@ app.get('/', async(req,res) => {
     res.send(result.data.name);
 });
 
-app.listen(3000, () => {
-        console.log("Server running at Port 3000");
+app.listen(PORT, () => {
+        console.log(`Server running at Port ${PORT}`);
 })
